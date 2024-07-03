@@ -1,13 +1,18 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By 
-import time 
+import smtplib, ssl
 
-service = Service(executable_path="chromedriver.exe")
-driver = webdriver.Chrome(service=service)
+receiver_email = "elizabethlorelei1229@gmail.com"
+email = "grantbot08@gmail.com"
 
-driver.get("https://www.grants.gov/search-grants")
+subject = "Grants List"
+message = "Current list of grants: "
 
+text = f"Subject: {subject}\n\n{message}"
 
+server = smtplib.SMTP("smtp.gmail.com",587)
+server.starttls()
+
+server.login(email, "ialq guyh gbfg gztb")
+
+server.sendmail(email, receiver_email, text)
 
 
